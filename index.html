@@ -3,10 +3,49 @@
 <head>
     <title>Korean Drama Review</title>
     <meta charset="utf-8">
+    <script>
+        var Links = {
+            setColor: function (color) {
+                var alist = document.querySelectorAll('a');
+                var i = 0;
+                while (i < alist.length) {
+                    alist[i].style.color = color;
+                    i = i + 1;
+                }
+            }
+        }
+        var Body = {
+            setColor: function (color) {
+                document.querySelector('body').style.color = color;
+            },
+            setBackgroundColor: function (color) {
+                document.querySelector('body').style.backgroundColor = color;
+            }
+        }
+        function nightDayHandler(self) {
+            var target = document.querySelector('body');
+            if (self.value === 'night mode') {
+                Body.setBackgroundColor('black');
+                Body.setColor('white');
+                self.value = 'day mode'
+
+                Links.setColor('powderblue');
+            } else {
+                Body.setBackgroundColor('white');
+                Body.setColor('black');
+                self.value = 'night mode'
+
+                Links.setColor('blue');
+            }
+        }
+    </script>
 </head>
 
 <body>
     <h1><a href="index.html">Korean Drama Review</a></h1>
+    <input type="button" value="night mode" onclick="
+        nightDayHandler(this);
+    ">
     <ol>
         <li><a href="1.html">⭐⭐⭐⭐⭐</a></li>
         <li><a href="2.html">⭐⭐⭐⭐</a></li>
